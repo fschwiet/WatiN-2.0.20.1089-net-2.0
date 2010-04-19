@@ -251,13 +251,13 @@ namespace WatiN.Core.Constraints
         /// <param name="attributeBag">The attribute bag, not null</param>
         /// <param name="context">The constraint matching context, not null</param>
         /// <returns>True if the constraint matches</returns>
-        protected abstract bool MatchesImpl(IAttributeBag attributeBag, ConstraintContext context);
+        public abstract bool MatchesImpl(IAttributeBag attributeBag, ConstraintContext context);
 
         /// <summary>
         /// Tracks when a constraint's Match method has been entered by the current thread.
         /// </summary>
         /// <exception cref="ReEntryException">Thrown if reentrance has been detected</exception>
-        private void EnterMatch()
+        public virtual void EnterMatch()
         {
             if (enteredConstraints == null)
             {
@@ -275,7 +275,7 @@ namespace WatiN.Core.Constraints
         /// <summary>
         /// Tracks when a constraint's Match method has been exited by the current thread.
         /// </summary>
-        private void ExitMatch()
+        public virtual void ExitMatch()
         {
             if (enteredConstraints != null)
                 enteredConstraints.Remove(this);

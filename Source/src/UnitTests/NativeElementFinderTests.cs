@@ -120,9 +120,9 @@ namespace WatiN.Core.UnitTests
 
         public class MockNativeElementFinder : NativeElementFinder
         {
-            public IMock<INativeElementCollection> MockElementCollection { get; set; }
+            public Mock<INativeElementCollection> MockElementCollection { get; set; }
 
-            public MockNativeElementFinder(IMock<INativeElementCollection> mockElementCollection, DomContainer domContainer, IList<ElementTag> elementTags, Constraint constraint)
+            public MockNativeElementFinder(Mock<INativeElementCollection> mockElementCollection, DomContainer domContainer, IList<ElementTag> elementTags, Constraint constraint)
                 : base(() => mockElementCollection.Object, domContainer, elementTags, constraint)
             {
                 MockElementCollection = mockElementCollection;

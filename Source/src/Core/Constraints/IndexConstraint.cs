@@ -54,7 +54,7 @@ namespace WatiN.Core.Constraints
         }
 
         /// <inheritdoc />
-        protected override bool MatchesImpl(IAttributeBag attributeBag, ConstraintContext context)
+        public override bool MatchesImpl(IAttributeBag attributeBag, ConstraintContext context)
         {
             int counter = ((int?)context.GetData(this)).GetValueOrDefault();
             context.SetData(this, counter + 1);

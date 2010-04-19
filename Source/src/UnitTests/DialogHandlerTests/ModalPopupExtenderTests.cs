@@ -58,7 +58,7 @@ namespace WatiN.Core.UnitTests
 	{
 		public VisibleConstraint(bool visible) : base("visible", new BoolComparer(visible)) {}
 
-        protected override bool MatchesImpl(IAttributeBag attributeBag, ConstraintContext context)
+        public override bool MatchesImpl(IAttributeBag attributeBag, ConstraintContext context)
         {
             var element = attributeBag.GetAdapter<Element>();
             return element != null && Comparer.Compare(IsVisible(element).ToString());
