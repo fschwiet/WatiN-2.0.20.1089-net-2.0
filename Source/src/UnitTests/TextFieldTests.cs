@@ -20,7 +20,6 @@ using System;
 using System.Collections;
 using System.Text.RegularExpressions;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using WatiN.Core.Exceptions;
 using WatiN.Core.UnitTests.TestUtils;
 
@@ -328,7 +327,7 @@ namespace WatiN.Core.UnitTests
 		                            textfieldEnumerator.MoveNext();
 		                            var enumTextfield = textfieldEnumerator.Current;
 
-		                            Assert.IsInstanceOfType(textField.GetType(), enumTextfield, "Types are not the same");
+		                            Assert.IsInstanceOf(textField.GetType(), enumTextfield, "Types are not the same");
 		                            Assert.AreEqual(textField.OuterHtml, ((TextField) enumTextfield).OuterHtml, "foreach and IEnumator don't act the same.");
 		                            ++count;
 		                        }

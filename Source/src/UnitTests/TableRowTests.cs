@@ -20,7 +20,6 @@ using System;
 using System.Collections;
 using System.Text.RegularExpressions;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using WatiN.Core.Comparers;
 using WatiN.Core.UnitTests.TestUtils;
 
@@ -72,7 +71,7 @@ namespace WatiN.Core.UnitTests
 		                            rowEnumerator.MoveNext();
 		                            var enumTable = rowEnumerator.Current;
 
-		                            Assert.IsInstanceOfType(row.GetType(), enumTable, "Types are not the same");
+		                            Assert.IsInstanceOf(row.GetType(), enumTable, "Types are not the same");
 		                            Assert.AreEqual(row.OuterHtml, ((TableRow) enumTable).OuterHtml, "foreach and IEnumator don't act the same.");
 		                            ++count;
 		                        }

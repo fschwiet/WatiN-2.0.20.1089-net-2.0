@@ -53,8 +53,8 @@ namespace WatiN.Core.UnitTests
 		                    {
                                 var para = browser.Para("links");
 
-			                    Assert.IsInstanceOfType(typeof (IElementContainer), para);
-                                Assert.IsInstanceOfType(typeof (ElementContainer<Para>), para);
+			                    Assert.IsInstanceOf(typeof (IElementContainer), para);
+                                Assert.IsInstanceOf(typeof (ElementContainer<Para>), para);
 
 		                        Assert.IsNotNull(para);
 		                        Assert.AreEqual("links", para.Id);
@@ -88,7 +88,7 @@ namespace WatiN.Core.UnitTests
 		                            ParaEnumerator.MoveNext();
 		                            var enumPara = ParaEnumerator.Current;
 
-		                            Assert.IsInstanceOfType(inputPara.GetType(), enumPara, "Types are not the same");
+		                            Assert.IsInstanceOf(inputPara.GetType(), enumPara, "Types are not the same");
 		                            Assert.AreEqual(inputPara.OuterHtml, ((Para) enumPara).OuterHtml, "foreach and IEnumator don't act the same.");
 		                            ++count;
 		                        }

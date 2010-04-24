@@ -20,7 +20,6 @@ using System;
 using System.Diagnostics;
 using System.Threading;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using SHDocVw;
 using WatiN.Core.Native.InternetExplorer;
 using WatiN.Core.UnitTests.TestUtils;

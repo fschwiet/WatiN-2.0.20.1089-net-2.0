@@ -32,9 +32,7 @@ namespace FindByCss
 
         public string GetJQueryInstallScript()
         {
-            string jQueryIncludeFile = LoadResourceByName("jquery-1.4.2.js");
-
-            return "if (typeof(jQuery) != 'function') {" + jQueryIncludeFile +  "; jQuery.noConflict();}";
+            return LoadResourceByName("loadJQuery.js");
         }
 
         public string GetCssMarkingScript(string cssSelector, string markerClass)
@@ -42,7 +40,7 @@ namespace FindByCss
             return
             @"(function(cssSelector, markerClass) 
             { 
-                $(cssSelector).addClass(markerClass);
+                window.jQuery(cssSelector).addClass(markerClass);
             })(" + serializer.Serialize(cssSelector) + ", " + serializer.Serialize(markerClass) + ");";
         }
             
@@ -52,7 +50,7 @@ namespace FindByCss
             return
             @"(function(cssSelector, markerClass) 
             { 
-                $(cssSelector).removeClass(markerClass);
+                window.jQuery(cssSelector).removeClass(markerClass);
             })(" + serializer.Serialize(cssSelector) + ", " + serializer.Serialize(markerClass) + ");";
         }
     }

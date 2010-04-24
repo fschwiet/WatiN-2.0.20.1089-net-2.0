@@ -20,7 +20,6 @@ using System;
 using System.Collections;
 using System.Text.RegularExpressions;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using WatiN.Core.UnitTests.TestUtils;
 
 namespace WatiN.Core.UnitTests
@@ -121,7 +120,7 @@ namespace WatiN.Core.UnitTests
 		                            ImageEnumerator.MoveNext();
 		                            var enumImage = ImageEnumerator.Current;
 
-		                            Assert.IsInstanceOfType(inputImage.GetType(), enumImage, "Types are not the same");
+		                            Assert.IsInstanceOf(inputImage.GetType(), enumImage, "Types are not the same");
 		                            Assert.AreEqual(inputImage.OuterHtml, ((Image) enumImage).OuterHtml, "foreach and IEnumator don't act the same.");
 		                            ++count;
 		                        }

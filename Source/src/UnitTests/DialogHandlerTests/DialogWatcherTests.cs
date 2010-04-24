@@ -240,7 +240,7 @@ namespace WatiN.Core.UnitTests
 			Settings.AutoStartDialogWatcher = false;
 			using (var ie = new IE())
 			{
-				Assert.That(ie.DialogWatcher, NUnit.Framework.SyntaxHelpers.Is.Null);
+				Assert.That(ie.DialogWatcher, Is.Null);
 			}
 		}
 	}

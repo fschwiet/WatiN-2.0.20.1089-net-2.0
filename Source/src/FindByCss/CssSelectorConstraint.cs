@@ -21,8 +21,8 @@ namespace FindByCss
 
         public CssSelectorConstraint(IScriptLoader scriptLoader, DomContainer domContainer)
         {
-            _domContainer = domContainer;
             _scriptLoader = scriptLoader;
+            _domContainer = domContainer;
         }
 
         public void Initialize(string cssSelector, string markerClass)

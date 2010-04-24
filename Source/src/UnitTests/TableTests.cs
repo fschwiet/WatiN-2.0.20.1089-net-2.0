@@ -20,7 +20,6 @@ using System;
 using System.Collections;
 using System.Text.RegularExpressions;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using WatiN.Core.UnitTests.TestUtils;
 
 namespace WatiN.Core.UnitTests
@@ -62,8 +61,8 @@ namespace WatiN.Core.UnitTests
 		    ExecuteTest(browser =>
 		                    {
                                 var tableRow = browser.TableRow("row0");
-		                        Assert.IsInstanceOfType(typeof (TableBody), tableRow.Parent, "Parent should be a TableBody Type");
-		                        Assert.IsInstanceOfType(typeof (Table), tableRow.ContainingTable, "Should be a Table Type");
+		                        Assert.IsInstanceOf(typeof (TableBody), tableRow.Parent, "Parent should be a TableBody Type");
+		                        Assert.IsInstanceOf(typeof (Table), tableRow.ContainingTable, "Should be a Table Type");
 		                        Assert.AreEqual("table1", tableRow.ParentTable.Id, "Unexpected id");
 		                    });
 		}
@@ -237,7 +236,7 @@ namespace WatiN.Core.UnitTests
 		                            tableEnumerator.MoveNext();
 		                            var enumTable = tableEnumerator.Current;
 
-		                            Assert.IsInstanceOfType(table.GetType(), enumTable, "Types are not the same");
+		                            Assert.IsInstanceOf(table.GetType(), enumTable, "Types are not the same");
 		                            Assert.AreEqual(table.OuterHtml, ((Table) enumTable).OuterHtml, "foreach and IEnumerator don't act the same.");
 		                            ++count;
 		                        }

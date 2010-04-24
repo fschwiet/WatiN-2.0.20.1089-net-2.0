@@ -46,14 +46,14 @@ namespace WatiN.Core.UnitTests
 		public void SettingLogWriterToNullShouldReturnNoLogClass()
 		{
 			Logger.LogWriter = null;
-			Assert.IsInstanceOfType(typeof (NoLog), Logger.LogWriter);
+			Assert.IsInstanceOf(typeof (NoLog), Logger.LogWriter);
 		}
 
 		[Test]
 		public void SettingLogWriterShouldReturnThatLogWriter()
 		{
 			Logger.LogWriter = new DebugLogWriter();
-			Assert.IsInstanceOfType(typeof (DebugLogWriter), Logger.LogWriter);
+			Assert.IsInstanceOf(typeof (DebugLogWriter), Logger.LogWriter);
 		}
 
 		[Test]

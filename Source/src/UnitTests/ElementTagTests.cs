@@ -41,7 +41,7 @@ namespace WatiN.Core.UnitTests
 		public void ToStringShouldBeEmptyIfTagNameIsNull()
 		{
 			var elementTag = new ElementTag((string) null);
-			Assert.That(elementTag.ToString(), NUnit.Framework.SyntaxHelpers.Is.EqualTo(""));
+			Assert.That(elementTag.ToString(), Is.EqualTo(""));
 		}
 
 		[Test]

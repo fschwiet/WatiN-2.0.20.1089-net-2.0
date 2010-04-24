@@ -20,7 +20,6 @@ using System;
 using System.Text.RegularExpressions;
 using Moq;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using WatiN.Core.Exceptions;
 using WatiN.Core.Native;
 using WatiN.Core.UnitTests.TestUtils;
@@ -519,7 +518,7 @@ namespace WatiN.Core.UnitTests
                                 text = newlineSpaces.Replace(text, "");
 
                                 // THEN
-                                Assert.That(text, NUnit.Framework.SyntaxHelpers.Text.StartsWith("col1col2a1a2b1b2"));
+                                Assert.That(text, NUnit.Framework.Text.StartsWith("col1col2a1a2b1b2"));
                             });
         }
 
@@ -533,7 +532,7 @@ namespace WatiN.Core.UnitTests
                                 var outerHtml = browser.Html.ToLowerInvariant();
 
                                 // THEN
-                                Assert.That(outerHtml, NUnit.Framework.SyntaxHelpers.Text.StartsWith("\r\n<body>"));
+                                Assert.That(outerHtml, NUnit.Framework.Text.StartsWith("\r\n<body>"));
                             });
         }
     }

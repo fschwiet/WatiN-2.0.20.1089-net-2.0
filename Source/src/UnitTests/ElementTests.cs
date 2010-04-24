@@ -21,7 +21,6 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Moq;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using WatiN.Core.Comparers;
 using WatiN.Core.Constraints;
 using WatiN.Core.Exceptions;
@@ -59,7 +58,7 @@ namespace WatiN.Core.UnitTests
             var ancestor = tableCell.Ancestor(typeof (Div));
 		    
             //THEN
-            Assert.IsInstanceOfType(typeof (Div), ancestor);
+            Assert.IsInstanceOf(typeof (Div), ancestor);
 		}
 
         // TODO: This should be mocked cause there is no browser logic involved
@@ -69,7 +68,7 @@ namespace WatiN.Core.UnitTests
             ExecuteTestWithAnyBrowser(browser =>
               {
                   var tableCell = browser.TableCell(Find.ByText("Contains text in DIV"));
-                  Assert.IsInstanceOfType(typeof(Div), tableCell.Ancestor("Div"));
+                  Assert.IsInstanceOf(typeof(Div), tableCell.Ancestor("Div"));
               });
 		}
 
@@ -80,7 +79,7 @@ namespace WatiN.Core.UnitTests
             ExecuteTestWithAnyBrowser(browser =>
               {
                 var tableCell = browser.TableCell(Find.ByText("Contains text in DIV"));
-                Assert.IsInstanceOfType(typeof (Div), tableCell.Ancestor(Find.ById("divid")));
+                Assert.IsInstanceOf(typeof (Div), tableCell.Ancestor(Find.ById("divid")));
               });
         }
 
@@ -93,7 +92,7 @@ namespace WatiN.Core.UnitTests
                   var tableCell = browser.TableCell(Find.ByText("Contains text in DIV"));
                   var ancestor = tableCell.Ancestor(typeof(Div), Find.ById("divid"));
 
-                  Assert.IsInstanceOfType(typeof(Div), ancestor);
+                  Assert.IsInstanceOf(typeof(Div), ancestor);
                   Assert.That(ancestor.Id, Is.EqualTo("divid"));
               });
         }
@@ -129,7 +128,7 @@ namespace WatiN.Core.UnitTests
             firstParentDivMock.VerifyAll();
             secondParentDivMock.VerifyAll();
 
-			Assert.IsInstanceOfType(typeof (Div), ancestor);
+			Assert.IsInstanceOf(typeof (Div), ancestor);
 			Assert.That(ancestor.Text, Is.EqualTo("second ancestor"));
 		}
 
@@ -153,7 +152,7 @@ namespace WatiN.Core.UnitTests
 		{
 			var tableCell = Ie.TableCell(Find.ByText("Contains text in DIV"));
 			
-            Assert.IsInstanceOfType(typeof (TableRow), tableCell.Parent);
+            Assert.IsInstanceOf(typeof (TableRow), tableCell.Parent);
 		}
 
         // TODO: This should be mocked cause there is no browser logic involved
@@ -699,7 +698,7 @@ namespace WatiN.Core.UnitTests
 			}
 
 			Assert.IsNotNull(timeoutException, "TimeoutException not thrown");
-			Assert.IsInstanceOfType(typeof (UnauthorizedAccessException), timeoutException.InnerException, "Unexpected innerexception");
+			Assert.IsInstanceOf(typeof (UnauthorizedAccessException), timeoutException.InnerException, "Unexpected innerexception");
 			Assert.AreEqual("mockUnauthorizedAccessException", timeoutException.InnerException.Message);
 
             domContainerMock.VerifyAll();
@@ -1006,7 +1005,7 @@ namespace WatiN.Core.UnitTests
             var tableRow = Ie.TableRow(Find.ById("2"));
             Element ancestor = tableRow.Ancestor<Table>(Find.ById("Table1"));
           
-            Assert.IsInstanceOfType (typeof (Table), ancestor);
+            Assert.IsInstanceOf (typeof (Table), ancestor);
             Assert.That(ancestor.Id, Is.EqualTo("Table1"));
         }
 
@@ -1018,7 +1017,7 @@ namespace WatiN.Core.UnitTests
             var tableRow = Ie.TableRow(Find.ById("2"));
             Element ancestor = tableRow.Ancestor<Table>(table => table.Id == "Table1");
           
-            Assert.IsInstanceOfType (typeof (Table), ancestor);
+            Assert.IsInstanceOf (typeof (Table), ancestor);
             Assert.That(ancestor.Id, Is.EqualTo("Table1"));
         }
 

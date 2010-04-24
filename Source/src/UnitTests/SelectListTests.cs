@@ -155,7 +155,7 @@ namespace WatiN.Core.UnitTests
 		                            selectListEnumerator.MoveNext();
 		                            var enumSelectList = selectListEnumerator.Current;
 
-		                            Assert.IsInstanceOfType(selectList.GetType(), enumSelectList, "Types are not the same");
+		                            Assert.IsInstanceOf(selectList.GetType(), enumSelectList, "Types are not the same");
 		                            Assert.AreEqual(selectList.OuterHtml, ((SelectList) enumSelectList).OuterHtml, "foreach and IEnumator don't act the same.");
 		                            ++count;
 		                        }

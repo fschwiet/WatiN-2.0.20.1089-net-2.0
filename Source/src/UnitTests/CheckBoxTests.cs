@@ -20,7 +20,6 @@ using System;
 using System.Collections;
 using System.Text.RegularExpressions;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using WatiN.Core.Constraints;
 using System.Collections.Generic;
 using WatiN.Core.UnitTests.TestUtils;
@@ -97,7 +96,7 @@ namespace WatiN.Core.UnitTests
                                     checkboxEnumerator.MoveNext();
                                     var enumCheckbox = checkboxEnumerator.Current;
 
-                                    Assert.IsInstanceOfType(checkBox.GetType(), enumCheckbox, "Types are not the same");
+                                    Assert.IsInstanceOf(checkBox.GetType(), enumCheckbox, "Types are not the same");
                                     Assert.AreEqual(checkBox.OuterHtml, ((CheckBox)enumCheckbox).OuterHtml, "foreach and IEnumator don't act the same.");
                                     ++count;
                                 }

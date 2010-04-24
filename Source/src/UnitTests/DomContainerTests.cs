@@ -60,13 +60,13 @@ namespace WatiN.Core.UnitTests
 
             waitForCompleteMock.DoWait();
             
-            Assert.That(waitForCompleteMock.Timeout, NUnit.Framework.SyntaxHelpers.Is.EqualTo(333), "Unexpected timeout");
+            Assert.That(waitForCompleteMock.Timeout, Is.EqualTo(333), "Unexpected timeout");
 	    }
 
 	    [Test]
 		public void DomContainerIsDocument()
 		{
-			Assert.IsInstanceOfType(typeof (Document), myTestDomContainer);
+			Assert.IsInstanceOf(typeof (Document), myTestDomContainer);
 		}
 
 	    [Test]

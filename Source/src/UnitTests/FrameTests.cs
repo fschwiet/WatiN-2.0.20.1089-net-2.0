@@ -19,7 +19,6 @@
 using System;
 using System.Collections;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using WatiN.Core.Exceptions;
 using WatiN.Core.Constraints;
 using WatiN.Core.UnitTests.TestUtils;
@@ -40,13 +39,13 @@ namespace WatiN.Core.UnitTests
 		[Test]
 		public void IEFrameIsAFrame()
 		{
-			Assert.IsInstanceOfType(typeof (Frame), Ie.Frame("mainid"));
+			Assert.IsInstanceOf(typeof (Frame), Ie.Frame("mainid"));
 		}
 
 		[Test]
 		public void FrameIsADocument()
 		{
-			Assert.IsInstanceOfType(typeof (Document), Ie.Frame("mainid"));
+			Assert.IsInstanceOf(typeof (Document), Ie.Frame("mainid"));
 		}
 
 		[Test]
@@ -150,7 +149,7 @@ namespace WatiN.Core.UnitTests
 		                            frameEnumerator.MoveNext();
 		                            var enumFrame = frameEnumerator.Current;
 
-		                            Assert.IsInstanceOfType(frame.GetType(), enumFrame, "Types are not the same");
+		                            Assert.IsInstanceOf(frame.GetType(), enumFrame, "Types are not the same");
 		                            Assert.AreEqual(frame.Html, ((Frame) enumFrame).Html, "foreach and IEnumator don't act the same.");
 		                            ++count;
 		                        }

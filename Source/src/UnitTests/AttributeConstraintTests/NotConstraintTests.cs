@@ -18,7 +18,6 @@
 
 using Moq;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using WatiN.Core.Constraints;
 using WatiN.Core.Interfaces;
 
@@ -54,7 +53,7 @@ namespace WatiN.Core.UnitTests.AttributeConstraintTests
             var attributenot = !Find.Any;
 
             // THEN
-            Assert.IsInstanceOfType(typeof (NotConstraint), attributenot, "Expected NotAttributeConstraint instance");
+            Assert.IsInstanceOf(typeof (NotConstraint), attributenot, "Expected NotAttributeConstraint instance");
             Assert.IsFalse(attributenot.Matches(mockAttributeBag, context));
         }
     }

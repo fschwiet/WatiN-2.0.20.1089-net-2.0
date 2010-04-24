@@ -78,7 +78,7 @@ namespace WatiN.Core.UnitTests
 		                            divEnumerator.MoveNext();
 		                            var enumDiv = divEnumerator.Current;
 
-		                            Assert.IsInstanceOfType(div.GetType(), enumDiv, "Types are not the same");
+		                            Assert.IsInstanceOf(div.GetType(), enumDiv, "Types are not the same");
 		                            Assert.AreEqual(div.OuterHtml, ((Div) enumDiv).OuterHtml, "foreach and IEnumator don't act the same.");
 		                            ++count;
 		                        }

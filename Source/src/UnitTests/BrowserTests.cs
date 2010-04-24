@@ -21,7 +21,6 @@ using System.Drawing;
 using System.Web;
 using System.Windows.Forms;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using WatiN.Core.Exceptions;
 using WatiN.Core.Native.Windows;
 using WatiN.Core.UnitTests.TestUtils;

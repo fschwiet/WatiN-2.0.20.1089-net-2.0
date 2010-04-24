@@ -20,7 +20,6 @@ using System;
 using System.Collections;
 using System.Text.RegularExpressions;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using WatiN.Core.Exceptions;
 using WatiN.Core.UnitTests.TestUtils;
 
@@ -157,7 +156,7 @@ namespace WatiN.Core.UnitTests
 		                            buttonEnumerator.MoveNext();
 		                            var enumButton = buttonEnumerator.Current;
 
-		                            Assert.IsInstanceOfType(inputButton.GetType(), enumButton, "Types are not the same");
+		                            Assert.IsInstanceOf(inputButton.GetType(), enumButton, "Types are not the same");
 		                            Assert.AreEqual(inputButton.OuterHtml, ((Button) enumButton).OuterHtml, "foreach and IEnumator don't act the same.");
 		                            ++count;
 		                        }
@@ -217,8 +216,8 @@ namespace WatiN.Core.UnitTests
 		                        const string popupValue = "Show modeless dialog";
 		                        var button = browser.Button(Find.ById("popupid"));
 
-		                        Assert.IsInstanceOfType(typeof (Element), button);
-		                        Assert.IsInstanceOfType(typeof (Button), button);
+		                        Assert.IsInstanceOf(typeof (Element), button);
+		                        Assert.IsInstanceOf(typeof (Button), button);
 
 		                        Assert.AreEqual(popupValue, button.Value);
 		                        Assert.AreEqual(popupValue, browser.Button("popupid").Value);
@@ -247,8 +246,8 @@ namespace WatiN.Core.UnitTests
 
 		                        var button = browser.Button(Find.ById("buttonelementid"));
 
-		                        Assert.IsInstanceOfType(typeof (Element), button);
-		                        Assert.IsInstanceOfType(typeof (Button), button);
+		                        Assert.IsInstanceOf(typeof (Element), button);
+		                        Assert.IsInstanceOf(typeof (Button), button);
 
 		                        Assert.AreEqual(Value, browser.Button("buttonelementid").Value);
 		                        Assert.AreEqual(Value, browser.Button("buttonelementid").ToString());

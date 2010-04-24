@@ -21,7 +21,6 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using NUnit.Framework;
 using System.IO;
-using NUnit.Framework.SyntaxHelpers;
 using WatiN.Core.UnitTests.TestUtils;
 using WatiN.Core.UtilityClasses;
 

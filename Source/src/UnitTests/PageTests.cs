@@ -19,7 +19,6 @@
 using System;
 using System.Text.RegularExpressions;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using WatiN.Core.UnitTests.TestUtils;
 
 namespace WatiN.Core.UnitTests
@@ -56,7 +55,7 @@ namespace WatiN.Core.UnitTests
             });
         }
 
-        [Test, ExpectedException(ExceptionType = typeof(PageVerificationException))]
+        [Test, ExpectedException(ExpectedException = typeof(PageVerificationException))]
         public void Should_fail_element_lookup_by_code_cause_we_are_on_the_wrong_page()
         {
             ExecuteTestWithAnyBrowser(browser =>

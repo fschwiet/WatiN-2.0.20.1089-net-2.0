@@ -20,7 +20,6 @@ using System;
 using System.Collections;
 using System.Text.RegularExpressions;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using System.Collections.Generic;
 using WatiN.Core.UnitTests.TestUtils;
 
@@ -82,8 +81,8 @@ namespace WatiN.Core.UnitTests
 		                    {
 		                        var form = browser.Form("Form2");
 
-		                        Assert.IsInstanceOfType(typeof (IElementContainer), form);
-		                        Assert.IsInstanceOfType(typeof (ElementContainer<Form>), form);
+		                        Assert.IsInstanceOf(typeof (IElementContainer), form);
+		                        Assert.IsInstanceOf(typeof (ElementContainer<Form>), form);
 		                        Assert.AreEqual("Form2", form.Id, "Unexpected Id");
 		                        Assert.AreEqual("form2name", form.Name, "Unexpected Name");
 		                        Assert.AreEqual("Form title", form.Title, "Unexpected Title");
@@ -119,7 +118,7 @@ namespace WatiN.Core.UnitTests
 		                            checkboxEnumerator.MoveNext();
 		                            var enumCheckbox = checkboxEnumerator.Current;
 
-		                            Assert.IsInstanceOfType(form.GetType(), enumCheckbox, "Types are not the same");
+		                            Assert.IsInstanceOf(form.GetType(), enumCheckbox, "Types are not the same");
 		                            Assert.AreEqual(form.OuterHtml, ((Form) enumCheckbox).OuterHtml, "foreach and IEnumator don't act the same.");
 		                            ++count;
 		                        }

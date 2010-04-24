@@ -17,28 +17,9 @@ namespace FindByCssTest
 
             string result = sut.GetJQueryInstallScript();
 
-            Assert.IsTrue(result.Length > 2000);
+            Assert.IsTrue(result.Length > 100);
         }
 
-        [Test]
-        public void TestJqueryInstallScriptOnlyLoadsJQueryIsNotLoaded()
-        {
-            var sut = new ScriptLoader();
-
-            string result = sut.GetJQueryInstallScript();
-
-            Assert.IsTrue(result.StartsWith("if (typeof(jQuery != 'function') {"));
-        }
-
-        [Test]
-        public void TestJqueryInstallScriptUsesJQueryInCompatibilityMode()
-        {
-            var sut = new ScriptLoader();
-
-            string result = sut.GetJQueryInstallScript();
-
-            Assert.IsTrue(result.EndsWith("; jQuery.noConflict();}"));
-        }
 
         [Test]
         public void TestGetCssMarkingScript()

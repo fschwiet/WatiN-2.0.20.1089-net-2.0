@@ -17,7 +17,6 @@
 #endregion Copyright
 
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace WatiN.Core.UnitTests.AttributeConstraintTests
 {

@@ -19,7 +19,6 @@
 using System;
 using System.Threading;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using WatiN.Core.Constraints;
 using WatiN.Core.Exceptions;
 using WatiN.Core.UnitTests.TestUtils;
@@ -42,7 +41,7 @@ namespace WatiN.Core.UnitTests
 
 			using (var htmlDialog = Ie.HtmlDialog(Find.ByTitle("PopUpTest")))
 			{
-				Assert.IsInstanceOfType(typeof (DomContainer), htmlDialog);
+				Assert.IsInstanceOf(typeof (DomContainer), htmlDialog);
 
 				Assert.IsNotNull(htmlDialog, "Dialog niet aangetroffen");
 				Assert.AreEqual("PopUpTest", htmlDialog.Title, "Unexpected title");
@@ -115,7 +114,7 @@ namespace WatiN.Core.UnitTests
 			}
 			catch (Exception e)
 			{
-				Assert.IsInstanceOfType(typeof (HtmlDialogNotFoundException), e, "Unexpected exception");
+				Assert.IsInstanceOf(typeof (HtmlDialogNotFoundException), e, "Unexpected exception");
 				// add 1 second to give it some slack.
 				Assert.Greater(timeoutTime + 1, DateTime.Now.Subtract(startTime).TotalSeconds);
 				Assert.AreEqual(expectedMessage, e.Message, "Unexpected exception message");

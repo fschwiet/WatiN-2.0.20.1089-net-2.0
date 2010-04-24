@@ -22,7 +22,6 @@ using System.Net;
 using System.Threading;
 using System.Web;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using SHDocVw;
 using WatiN.Core.Constraints;
 using WatiN.Core.DialogHandlers;
@@ -74,9 +73,9 @@ namespace WatiN.Core.UnitTests.IETests
         {
             using (var ie = new IE())
             {
-                Assert.IsInstanceOfType(typeof (IE), ie, "Should be an IE instance");
-                Assert.IsInstanceOfType(typeof (Browser), ie, "Should be a Browser instance");
-                Assert.IsInstanceOfType(typeof (DomContainer), ie, "Should be a DomContainer instance");
+                Assert.IsInstanceOf(typeof (IE), ie, "Should be an IE instance");
+                Assert.IsInstanceOf(typeof (Browser), ie, "Should be a Browser instance");
+                Assert.IsInstanceOf(typeof (DomContainer), ie, "Should be a DomContainer instance");
             }
         }
 
@@ -519,7 +518,7 @@ namespace WatiN.Core.UnitTests.IETests
             }
             catch (Exception e)
             {
-                Assert.IsInstanceOfType(typeof (BrowserNotFoundException), e);
+                Assert.IsInstanceOf(typeof (BrowserNotFoundException), e);
                 // add 1 second to give it some slack.
                 Assert.Greater(timeoutTime + 1, DateTime.Now.Subtract(startTime).TotalSeconds);
                 Console.WriteLine(e.Message);

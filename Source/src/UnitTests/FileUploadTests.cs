@@ -20,7 +20,6 @@ using System;
 using System.Collections;
 using System.Text.RegularExpressions;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using System.Collections.Generic;
 using WatiN.Core.UnitTests.TestUtils;
 
@@ -126,7 +125,7 @@ namespace WatiN.Core.UnitTests
 		                            FileUploadEnumerator.MoveNext();
 		                            var enumFileUpload = FileUploadEnumerator.Current;
 
-		                            Assert.IsInstanceOfType(inputFileUpload.GetType(), enumFileUpload, "Types are not the same");
+		                            Assert.IsInstanceOf(inputFileUpload.GetType(), enumFileUpload, "Types are not the same");
 		                            Assert.AreEqual(inputFileUpload.OuterHtml, ((FileUpload) enumFileUpload).OuterHtml, "foreach and IEnumator don't act the same.");
 		                            ++count;
 		                        }

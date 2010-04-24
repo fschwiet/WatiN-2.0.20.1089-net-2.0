@@ -41,7 +41,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug %28.Net 2.0%29|AnyCPU' ">
     <OutputPath>bin\</OutputPath>
@@ -491,6 +491,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="UtilityClasses\EmptyArray.cs" />
+    <Compile Include="UtilityClasses\JsonUtils.cs" />
     <Compile Include="UtilityClasses\LazyList.cs" />
     <Compile Include="UtilityClasses\VariableNameHelper.cs" />
     <Compile Include="WaitForCompleteBase.cs" />

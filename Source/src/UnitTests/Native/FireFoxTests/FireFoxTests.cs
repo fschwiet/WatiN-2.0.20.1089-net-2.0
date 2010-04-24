@@ -18,7 +18,6 @@
 
 using System.Web;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using WatiN.Core.UnitTests.TestUtils;
 
 namespace WatiN.Core.UnitTests.FireFoxTests
@@ -41,9 +40,9 @@ namespace WatiN.Core.UnitTests.FireFoxTests
         {
 			using (var firefox = new FireFox())
 			{
-				Assert.IsInstanceOfType(typeof (FireFox), firefox, "Should be a FireFox instance");
-				Assert.IsInstanceOfType(typeof (Browser), firefox, "Should be a Browser instance");
-				Assert.IsInstanceOfType(typeof (DomContainer), firefox, "Should be a DomContainer instance");
+				Assert.IsInstanceOf(typeof (FireFox), firefox, "Should be a FireFox instance");
+				Assert.IsInstanceOf(typeof (Browser), firefox, "Should be a Browser instance");
+				Assert.IsInstanceOf(typeof (DomContainer), firefox, "Should be a DomContainer instance");
 			}
         }
 

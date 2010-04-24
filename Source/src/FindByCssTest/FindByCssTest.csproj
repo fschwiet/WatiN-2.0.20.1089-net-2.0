@@ -53,8 +53,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BrowserUtil.cs" />
     <Compile Include="CssSelectorConstraintTest.cs" />
-    <Compile Include="IntegrationTests.cs" />
+    <Compile Include="DomContainerUtilTest.cs" />
+    <Compile Include="ScriptLoaderIntegrationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScriptLoaderTest.cs" />
     <Compile Include="Some.cs" />
@@ -68,6 +70,21 @@
       <Project>{FB6ACD9B-4127-43BA-B44B-2887FF82821A}</Project>
       <Name>FindByCss</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UnitTests\UnitTests.csproj">
+      <Project>{D6E231B3-28D9-4F73-9586-738FB528B4DB}</Project>
+      <Name>UnitTests</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="html\burger.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\cheeseburger.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="html\veggieburger.htm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

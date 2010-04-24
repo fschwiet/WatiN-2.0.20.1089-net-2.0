@@ -53,8 +53,8 @@ namespace WatiN.Core.UnitTests
 		                    {
                                 var Span = browser.Span("spanid1");
 
-			                    Assert.IsInstanceOfType(typeof (IElementContainer), Span);
-                                Assert.IsInstanceOfType(typeof (ElementContainer<Span>), Span);
+			                    Assert.IsInstanceOf(typeof (IElementContainer), Span);
+                                Assert.IsInstanceOf(typeof (ElementContainer<Span>), Span);
 
 		                        Assert.IsNotNull(Span, "Span should bot be null");
 		                        Assert.AreEqual("spanid1", Span.Id, "Unexpected id");
@@ -87,7 +87,7 @@ namespace WatiN.Core.UnitTests
 		                            SpanEnumerator.MoveNext();
 		                            var enumSpan = SpanEnumerator.Current;
 
-		                            Assert.IsInstanceOfType(inputSpan.GetType(), enumSpan, "Types are not the same");
+		                            Assert.IsInstanceOf(inputSpan.GetType(), enumSpan, "Types are not the same");
 		                            Assert.AreEqual(inputSpan.OuterHtml, ((Span) enumSpan).OuterHtml, "foreach and IEnumator don't act the same.");
 		                            ++count;
 		                        }

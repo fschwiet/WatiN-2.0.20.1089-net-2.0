@@ -19,7 +19,6 @@
 using System;
 using System.Collections;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using WatiN.Core.Exceptions;
 using WatiN.Core.UnitTests.TestUtils;
 
@@ -122,7 +121,7 @@ namespace WatiN.Core.UnitTests
 		                            frameEnumerator.MoveNext();
 		                            var enumFrame = frameEnumerator.Current;
 
-		                            Assert.IsInstanceOfType(frame.GetType(), enumFrame, "Types are not the same");
+		                            Assert.IsInstanceOf(frame.GetType(), enumFrame, "Types are not the same");
 		                            Assert.AreEqual(frame.Html, ((Frame) enumFrame).Html, "foreach and IEnumator don't act the same.");
 		                            ++count;
 		                        }

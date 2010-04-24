@@ -23,7 +23,7 @@ namespace FindByCssTest
         {
             var sut = new CssSelectorConstraint(null,null);
 
-            Assert.IsInstanceOfType(typeof(WatiN.Core.Constraints.Constraint), sut);
+            Assert.IsInstanceOf(typeof(WatiN.Core.Constraints.Constraint), sut);
         }
 
         [Test]

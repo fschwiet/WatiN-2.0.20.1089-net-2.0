@@ -73,25 +73,31 @@ namespace WatiN.Core.UnitTests.TestUtils
             {
                 if (HtmlTestBaseUriInternal == null)
                 {
-                    HtmlTestBaseUriInternal = new Uri(GetHtmlTestFilesLocation());
+                    HtmlTestBaseUriInternal = new Uri(GetHtmlTestFilesLocation("html"));
                 }
                 return HtmlTestBaseUriInternal;
             }
         }
 
-        private static string GetHtmlTestFilesLocation()
+        public static string GetHtmlTestFilesLocation(string subdirectory)
         {
             var baseDirectory = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory);
 
+            if (!subdirectory.StartsWith("\\"))
+                subdirectory = "\\" + subdirectory;
+
+            if (!subdirectory.EndsWith("\\"))
+                subdirectory = subdirectory + "\\";
+            
             // Search for the html directory in the current domains base directory
             // Valid when executing WatiN UnitTests in a deployed situation. 
-            var htmlTestFilesLocation = baseDirectory.FullName + @"\html\";
+            var htmlTestFilesLocation = baseDirectory.FullName + subdirectory;
 
             if (!Directory.Exists(htmlTestFilesLocation))
             {
                 // If html directory not found, search one dir up in the directory tree
                 // Valid when executing WatiN UnitTests from within Visual Studio
-                htmlTestFilesLocation = baseDirectory.Parent.FullName + @"\html\";
+                htmlTestFilesLocation = baseDirectory.Parent.FullName + subdirectory;
             }
 
             return htmlTestFilesLocation;

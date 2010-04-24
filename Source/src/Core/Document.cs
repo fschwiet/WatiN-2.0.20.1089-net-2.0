@@ -422,6 +422,7 @@ namespace WatiN.Core
 		/// or throws an exception during evaluation</exception>
         public virtual string Eval(string javaScriptCode)
 		{
+            
 		    var documentVariableName = NativeDocument.JavaScriptVariableName;
 
 		    var resultVar = documentVariableName + "." + RESULT_PROPERTY_NAME;
@@ -429,13 +430,13 @@ namespace WatiN.Core
 
 			var exprWithAssignment = resultVar + " = '';" + errorVar + " = '';"
                                         + "try {"
-			                            +  resultVar + " = String(eval('" + javaScriptCode.Replace("'", "\\'") + "'))"
-			                            + "} catch (error) {"
+                                        + resultVar + " = String(eval(" + JsonUtils.WriteStringLiteral(javaScriptCode) + "))"
+                                        + "} catch (error) {"
                                         + errorVar + " = 'message' in error ? error.name + ': ' + error.message : String(error)"
 			                            + "};";
 
 			// Run the script.
-			RunScript(exprWithAssignment);
+            RunScript(exprWithAssignment);
 
 			// See if an error occured.
             var error = NativeDocument.GetPropertyValue(ERROR_PROPERTY_NAME);

@@ -84,7 +84,7 @@ namespace WatiN.Core.UnitTests
                                     areaEnumerator.MoveNext();
                                     var enumArea = areaEnumerator.Current;
 
-                                    Assert.IsInstanceOfType(area.GetType(), enumArea, "Types are not the same");
+                                    Assert.IsInstanceOf(area.GetType(), enumArea, "Types are not the same");
                                     Assert.AreEqual(area.OuterHtml, ((Area) enumArea).OuterHtml, "foreach and IEnumator don't act the same.");
                                     ++count;
                                 }

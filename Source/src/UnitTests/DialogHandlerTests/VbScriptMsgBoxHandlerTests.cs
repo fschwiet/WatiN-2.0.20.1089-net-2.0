@@ -18,7 +18,6 @@
 
 using System;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using WatiN.Core.DialogHandlers;
 using WatiN.Core.UnitTests.TestUtils;
 

@@ -20,7 +20,6 @@ using System;
 using System.Collections;
 using System.Text.RegularExpressions;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using WatiN.Core.UnitTests.TestUtils;
 
 namespace WatiN.Core.UnitTests
@@ -114,7 +113,7 @@ namespace WatiN.Core.UnitTests
 		                            radiobuttonEnumerator.MoveNext();
 		                            var enumRadioButton = radiobuttonEnumerator.Current;
 
-		                            Assert.IsInstanceOfType(radioButton.GetType(), enumRadioButton, "Types are not the same");
+		                            Assert.IsInstanceOf(radioButton.GetType(), enumRadioButton, "Types are not the same");
 		                            Assert.AreEqual(radioButton.OuterHtml, ((RadioButton) enumRadioButton).OuterHtml, "foreach and IEnumator don't act the same.");
 		                            ++count;
 		                        }

@@ -20,7 +20,6 @@ using System;
 using System.Collections.Generic;
 using Moq;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 using WatiN.Core.DialogHandlers;
 using WatiN.Core.Interfaces;
 using WatiN.Core.Native.Windows;
