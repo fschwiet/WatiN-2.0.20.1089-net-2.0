@@ -32,7 +32,7 @@ namespace FindByCssTest
 
             _browser.GoTo("http://www.google.com");
 
-            Assert.IsTrue(_browser.FindByCss("input").Exists);
+            _browser.FindByCss("input").WaitUntilExists();
         }
     }
 }

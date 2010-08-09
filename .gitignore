@@ -1,7 +1,8 @@
 bin/
 obj/
-_ReSharper.*/
-*.Resharper.user
+_ReSharper.*
+*.ReSharper.user
+*.resharper.user
 *.csproj.user
 *.ncb
 *.aps
