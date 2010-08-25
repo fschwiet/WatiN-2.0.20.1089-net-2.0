@@ -9,30 +9,25 @@ using WatiN.Core;
 namespace FindByCssTest
 {
     [TestFixture]
-    public class DomContainerUtilTest
+    public class DomContainerUtilTest : BrowserTestFixture
     {
-        Browser _browser = null;
-
-        [TearDown]
-        public void OnDone()
-        {
-            //if (_browser != null)
-            //    _browser.Close();
-
-            _browser = null;
-        }
-        
         [Test]
         [STAThread]
         [TestCase("IE")]
         [TestCase("FireFox")]
         public void TestFindByCss(string browserType)
         {
-            _browser = BrowserUtil.GetBrowser(browserType);
+            UseBrowser(browserType);
 
-            _browser.GoTo("http://www.google.com");
+            Browser.GoTo("http://allrecipes.com/");
+            LeakBrowser();
+            Browser.Link(Find.ByClass("linkRequiresLogin")).WaitUntilExists(5);
 
-            _browser.FindByCss("input").WaitUntilExists();
+            Browser.Link(DomContainerUtil.FindByCss(Browser.DomContainer, ".linkRequiresLogin")).WaitUntilExists(5);
+            //.And(DomContainerUtil.FindByCss(Browser, "body"))
+            //Browser.Element(Find.ById("main")
+            //    .And(DomContainerUtil.FindByCss(Browser, "#main"))
+            //    ).WaitUntilExists();
         }
     }
 }

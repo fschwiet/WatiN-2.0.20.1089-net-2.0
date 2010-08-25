@@ -30,8 +30,7 @@ namespace FindByCss
             _cssSelector = cssSelector;
             _markerClass = markerClass;
 
-            ActualConstraint = new AttributeConstraint("class",
-                new Regex(@"(^|\s)" + Regex.Escape(markerClass) + @"(\s|$)"));
+            ActualConstraint = new MarkerConstraint(markerClass);
         }
 
         public override void WriteDescriptionTo(TextWriter writer)
@@ -41,13 +40,14 @@ namespace FindByCss
 
         public override void EnterMatch()
         {
-            base.EnterMatch();
-
             var jqInstallScript = _scriptLoader.GetJQueryInstallScript();
             _domContainer.Eval(jqInstallScript);
 
             var markingScript = _scriptLoader.GetCssMarkingScript(_cssSelector, _markerClass);
             _domContainer.Eval(markingScript);
+
+            base.EnterMatch();
+            //ActualConstraint.EnterMatch();
         }
 
         public override bool MatchesImpl(IAttributeBag attributeBag, ConstraintContext context)
@@ -57,10 +57,12 @@ namespace FindByCss
 
         public override void ExitMatch()
         {
+            base.ExitMatch();
+            //ActualConstraint.ExitMatch();
+
             var unmarkingScript = _scriptLoader.GetCssMarkRemovalScript(_cssSelector, _markerClass);
             _domContainer.Eval(unmarkingScript);
 
-            base.ExitMatch();
         }
     }
 }
